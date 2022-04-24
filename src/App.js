@@ -7,20 +7,23 @@ import Send from "./pages/Send/Send";
 import Transactions from "./pages/Transactions/Transactions";
 import Balance from "./pages/Balance/Balance";
 import Deposit from "./pages/Deposit/Deposit";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <Layout>
+        <Navbar />
 
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/send" element={<Send />} />
-        <Route path="/transactions" element={<Transactions />} />
-        <Route path="/balance" element={<Balance />} />
-        <Route path="/deposit" element={<Deposit />} />
-      </Routes>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/send" element={<Send />} />
+          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/balance" element={<Balance />} />
+          <Route path="/deposit" element={<Deposit />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }

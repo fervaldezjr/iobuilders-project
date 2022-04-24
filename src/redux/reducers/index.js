@@ -56,8 +56,20 @@ const walletReducer = (state = initialState, action) => {
       return {
         ...state,
         user: state.user.map((user) =>
+          user.email === state.logged.email // si esta logueado
+            ? { ...user, wallet: user.wallet - action.payload.amount } // entro a su wallet y descuento el importe ingresado(payload)
+            : user.email === action.payload.receiver
+            ? { ...user, wallet: user.wallet + action.payload.amount }
+            : user
+        ),
+        transactions: [...state.transactions, action.payload],
+      };
+    case "ADD_MONEY":
+      return {
+        ...state,
+        user: state.user.map((user) =>
           user.email === state.logged.email
-            ? { ...user, wallet: user.wallet - action.payload.amount }
+            ? { ...user, wallet: user.wallet + action.payload.amount }
             : user
         ),
         transactions: [...state.transactions, action.payload],

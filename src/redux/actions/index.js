@@ -18,4 +18,9 @@ const sendMoney = (payload) => ({
   payload,
 });
 
-export { setTransaction, setLogin, addUser, sendMoney };
+const addMoney = (payload) => ({
+  type: "ADD_MONEY",
+  payload,
+});
+
+export { setTransaction, setLogin, addUser, sendMoney, addMoney };
