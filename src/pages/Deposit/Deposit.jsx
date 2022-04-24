@@ -27,15 +27,18 @@ const Deposit = () => {
         setTimeout(() => {
           console.log(JSON.stringify(values, null, 2));
           const {amount} = values;
-          dispatch(addMoney(
+          // Si el monto a depositar es mayor a 0. Deposito Ok.
+          amount > 0 
+          ? dispatch(addMoney(
             {
               id: counterTransactions +1,
               date: new Date().toLocaleDateString(),
               author: "DEPOSIT",
               receiver: userLogged,
               amount,
-            }
+            } 
           ))
+          : console.log('Ingrese un monto superior a 0');
           setSubmitting(false);
         }, 400);
       }}

@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { sendMoney } from "../../redux/actions";
 
 import {
@@ -16,7 +15,11 @@ import { Formik } from "formik";
 const Send = () => {
   const dispatch = useDispatch();
 
+  const counterTransactions = useSelector(state => state.transactions.length)
   const userLogged = useSelector(state => state.logged.email)
+  const user = useSelector(state => state.user)
+  const userLoggedWallet = user.find((user) => user.email === userLogged)
+  
 
   return (
     <Formik
@@ -34,24 +37,26 @@ const Send = () => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          // console.log(JSON.stringify(values, null, 2));
           const { amount, email } = values;
-          dispatch(
+          // Si el email a donde va el dinero esta registrado, continuo
+          user.find(user => user.email === email) 
+          // Si la Wallet de userLogged tiene más o igual € que el amount a enviar, continuo
+          ? userLoggedWallet.wallet >= amount && amount > 0
+          // Si el userLogged es diferente a quien se quiere transferir
+          ? userLogged !== email
+          // Si el importe a transferir es mayor a 0
+          ? dispatch(
             sendMoney({
-              id: 20,
+              id: counterTransactions + 1,
               date: new Date().toLocaleDateString(),
               author: userLogged,
               receiver: email.toLocaleLowerCase(),
               amount: amount,
             })
-          );
-          console.log({
-            amount: amount,
-            author: userLogged,
-            receiver: email.toLocaleLowerCase(),
-            date: new Date().toLocaleDateString(),
-            id: 20,
-          });
+          )
+          : alert('No puedes transferirte a ti mismo')
+          : alert('Dinero Insuficiente')
+          : alert('El usuario a quien le quieres transferir no existe')
           setSubmitting(false);
         }, 400);
       }}
