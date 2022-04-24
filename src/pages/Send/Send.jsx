@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { sendMoney } from "../../redux/actions";
-
 import {
   Button,
   ErrorMessages,
@@ -11,9 +10,13 @@ import {
   Label,
 } from "../../styled-components/General.styles";
 import { Formik } from "formik";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
+import { badYouAlert, noFounds, noFoundsAlert, transferSuccessAlert, userNoRegisted, userNoRegistedAlert } from "../../utils/alerts";
 
 const Send = () => {
   const dispatch = useDispatch();
+  const navegate = useNavigate();
 
   const counterTransactions = useSelector(state => state.transactions.length)
   const userLogged = useSelector(state => state.logged.email)
@@ -52,11 +55,11 @@ const Send = () => {
               author: userLogged,
               receiver: email.toLocaleLowerCase(),
               amount: amount,
-            })
-          )
-          : alert('No puedes transferirte a ti mismo')
-          : alert('Dinero Insuficiente')
-          : alert('El usuario a quien le quieres transferir no existe')
+            }, transferSuccessAlert())
+          ) && navegate("/balance")
+          : badYouAlert()
+          : noFoundsAlert()
+          : userNoRegistedAlert()
           setSubmitting(false);
         }, 400);
       }}

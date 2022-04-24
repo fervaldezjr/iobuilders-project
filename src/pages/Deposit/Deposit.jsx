@@ -3,9 +3,12 @@ import { Formik } from 'formik';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addMoney } from "../../redux/actions";
+import Swal from "sweetalert2"
+import { depositSuccess, depositSuccessAlert, moreThanZeroAlert } from "../../utils/alerts";
 
 const Deposit = () => {
   const dispatch = useDispatch()
+  const navegate = useNavigate()
   const userLogged = useSelector(state => state.logged.email)
   const counterTransactions = useSelector(state => state.transactions.length)
 
@@ -36,9 +39,9 @@ const Deposit = () => {
               author: "DEPOSIT",
               receiver: userLogged,
               amount,
-            } 
-          ))
-          : console.log('Ingrese un monto superior a 0');
+            }, depositSuccessAlert()
+            )) && navegate("/balance")
+          : moreThanZeroAlert();
           setSubmitting(false);
         }, 400);
       }}
