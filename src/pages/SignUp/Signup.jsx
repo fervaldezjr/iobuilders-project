@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin, addUser } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
-
 import {
   Button,
   ErrorMessages,
@@ -13,6 +12,7 @@ import {
   LabelContainer,
 } from "../../styled-components/General.styles";
 import { Formik } from "formik";
+import { emailAlreadyUsedAlert } from "../../utils/alerts";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -34,12 +34,11 @@ const Signup = () => {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
           console.log(JSON.stringify(values, null, 2));
           const { firstName, lastName, email, password } = values;
-
+          // 
           user.find((user) => user.email === email.toLowerCase())
-            ? console.log("ya existe el correo")
+            ? emailAlreadyUsedAlert()
             : dispatch(
                 addUser({
                   firstName,
@@ -56,7 +55,6 @@ const Signup = () => {
                 })
               ) && navegate("/balance");
           setSubmitting(false);
-        }, 400);
       }}
     >
       {({ isSubmitting }) => (

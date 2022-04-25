@@ -15,11 +15,12 @@ export const HistoryContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   margin: 1em 0;
-  padding: 0.5em 0;
+  padding: 1.5em 0;
   border: gray solid 1px;
   background-color: #282c34;
   border-radius: 15px;
   color: black;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 `;
 
 export const HistoryContent = styled.div`
@@ -27,15 +28,29 @@ export const HistoryContent = styled.div`
   font-size: 1em;
   color: white;
 `;
-export const HistoryUser = styled.div``;
-export const HistoryDate = styled.div``;
+
+export const HistoryInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const HistoryUserTitle = styled.h3`
+  margin: 0;
+  padding: 0.3em 0;
+`;
+export const HistoryUser = styled.p`
+  margin: 0;
+  padding: 0.3em 0;
+  font-weight: 400;
+`;
+
 export const HistoryAmoutOut = styled.p`
   font-weight: 600;
-  font-size: 1.2em;
-  color: tomato;
+  font-size: 3em;
+  color: #b95071;
 `;
 export const HistoryAmoutIn = styled.p`
   font-weight: 600;
-  font-size: 1.2em;
-  color: green;
+  font-size: 2.2em;
+  color: #4fcfc0;
 `;

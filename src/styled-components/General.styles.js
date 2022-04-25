@@ -5,6 +5,7 @@ export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0.5em;
 `;
 
 export const FormStyle = styled(Form)`
@@ -15,6 +16,8 @@ export const FormStyle = styled(Form)`
   margin: 1em 0;
   background-color: #282c34;
   border-radius: 15px;
+  width: 350px;
+  max-width: 90%;
 `;
 
 export const FormTitle = styled.h3`
@@ -41,7 +44,7 @@ export const Input = styled(Field)`
   margin: 1em 0;
   border-radius: 20px;
   border: 1px solid gray;
-  width: 30em;
+  /* width: 30em; */
 `;
 
 export const ErrorMessages = styled(ErrorMessage)`
@@ -57,7 +60,6 @@ export const Button = styled.button`
   background-color: rgb(32, 129, 226);
   border-radius: 20px;
   border: none;
-  width: 100%;
 `;
 
 export const AvatarImg = styled.img`

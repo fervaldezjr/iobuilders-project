@@ -12,6 +12,7 @@ import {
   Label,
 } from "../../styled-components/General.styles";
 import { Formik } from "formik";
+import { passOrUserIncorrectAlert } from "../../utils/alerts";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const Login = () => {
                   logged: true,
                 })
               ) && navegate("/balance")
-            : console.log("Usuario o contraseña incorrecta");
+            : passOrUserIncorrectAlert();
           setSubmitting(false);
         }}
       >

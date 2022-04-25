@@ -11,13 +11,11 @@ import {
 } from "../../styled-components/General.styles";
 import { Formik } from "formik";
 import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2'
-import { badYouAlert, noFounds, noFoundsAlert, transferSuccessAlert, userNoRegisted, userNoRegistedAlert } from "../../utils/alerts";
+import { badYouAlert, noFoundsAlert, transferSuccessAlert, userNoRegistedAlert } from "../../utils/alerts";
 
 const Send = () => {
   const dispatch = useDispatch();
   const navegate = useNavigate();
-
   const counterTransactions = useSelector(state => state.transactions.length)
   const userLogged = useSelector(state => state.logged.email)
   const user = useSelector(state => state.user)
@@ -39,15 +37,14 @@ const Send = () => {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
           const { amount, email } = values;
           // Si el email a donde va el dinero esta registrado, continuo
           user.find(user => user.email === email) 
           // Si la Wallet de userLogged tiene más o igual € que el amount a enviar, continuo
+          // Si el importe a transferir es mayor a 0
           ? userLoggedWallet.wallet >= amount && amount > 0
           // Si el userLogged es diferente a quien se quiere transferir
           ? userLogged !== email
-          // Si el importe a transferir es mayor a 0
           ? dispatch(
             sendMoney({
               id: counterTransactions + 1,
@@ -61,7 +58,6 @@ const Send = () => {
           : noFoundsAlert()
           : userNoRegistedAlert()
           setSubmitting(false);
-        }, 400);
       }}
     >
       {({ isSubmitting }) => (

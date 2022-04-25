@@ -13,8 +13,6 @@ const Balance = () => {
     (user) => user.email === state.logged.email && user.wallet
   );
 
-  console.log(wallet)
-
   return (
     <>
       <BalanceContainer>

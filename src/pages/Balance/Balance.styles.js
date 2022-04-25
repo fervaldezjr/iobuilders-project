@@ -13,6 +13,11 @@ export const BalanceContainer = styled.div`
   padding: 2em 0;
   margin: 3em;
   margin-bottom: 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+  @media (max-width: 425px) {
+    text-align: center;
+  }
 `;
 
 export const BalanceTitle = styled.h2`
@@ -21,7 +26,7 @@ export const BalanceTitle = styled.h2`
 `;
 
 export const BalanceAmount = styled.p`
-  font-size: 3.2em;
+  font-size: 3em;
   margin: 1em 0;
   font-weight: bolder;
 `;

@@ -3,8 +3,7 @@ import { Formik } from 'formik';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addMoney } from "../../redux/actions";
-import Swal from "sweetalert2"
-import { depositSuccess, depositSuccessAlert, moreThanZeroAlert } from "../../utils/alerts";
+import { depositSuccessAlert, moreThanZeroAlert } from "../../utils/alerts";
 
 const Deposit = () => {
   const dispatch = useDispatch()
@@ -27,8 +26,6 @@ const Deposit = () => {
       //   return errors;
       // }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          console.log(JSON.stringify(values, null, 2));
           const {amount} = values;
           // Si el monto a depositar es mayor a 0. Deposito Ok.
           amount > 0 
@@ -43,7 +40,6 @@ const Deposit = () => {
             )) && navegate("/balance")
           : moreThanZeroAlert();
           setSubmitting(false);
-        }, 400);
       }}
     >
       

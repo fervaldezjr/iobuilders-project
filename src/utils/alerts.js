@@ -8,6 +8,14 @@ export const noFoundsAlert = () => {
   });
 };
 
+export const passOrUserIncorrectAlert = () => {
+  Swal.fire({
+    icon: "error",
+    title: "User or password incorrect...",
+    text: "Try again or Register.",
+  });
+};
+
 export const userNoRegistedAlert = () => {
   Swal.fire({
     icon: "info",
@@ -37,6 +45,14 @@ export const moreThanZeroAlert = () => {
     icon: "info",
     title: "Enter an amount greater than 0...",
     text: "Oops, you must enter some value greater than 0.",
+  });
+};
+
+export const emailAlreadyUsedAlert = () => {
+  Swal.fire({
+    icon: "info",
+    title: "Email already used...",
+    text: "This email is already registered.",
   });
 };
 
