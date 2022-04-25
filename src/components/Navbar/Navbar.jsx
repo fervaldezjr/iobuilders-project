@@ -3,10 +3,19 @@ import Logo from '../../assets/logowallet.png'
 import NavUnlogged from "../NavUnlogged/NavUnlogged"
 import NavLogged from "../NavLogged/NavLogged"
 import { useSelector } from "react-redux"
+import { useState } from "react"
 
 
 const Navbar = () => {
     const userLogged = useSelector(state => state.logged.email)
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleToggle = () => {
+      setIsOpen(!isOpen);
+      console.log('estoy abriendo el menu');
+      console.log(isOpen);
+    };
+    
 
   return (
     <NavContainer>
@@ -15,7 +24,7 @@ const Navbar = () => {
             {
                 !userLogged
                 ? <NavUnlogged />
-                : <NavLogged />
+                : <NavLogged  isOpen={isOpen} handleToggle={handleToggle}/>
             }
         </Nav>
     </NavContainer>

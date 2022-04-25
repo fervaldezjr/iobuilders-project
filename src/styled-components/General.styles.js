@@ -14,7 +14,7 @@ export const FormStyle = styled(Form)`
   justify-content: center;
   padding: 2em;
   margin: 1em 0;
-  background-color: #282c34;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
   border-radius: 15px;
   width: 350px;
   max-width: 90%;
@@ -55,9 +55,14 @@ export const Button = styled.button`
   color: white;
   margin: 0.5em;
   padding: 0.7em;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1em;
-  background-color: rgb(32, 129, 226);
+  background-image: linear-gradient(
+    -225deg,
+    #77ffd2 0%,
+    #6297db 48%,
+    #1eecff 100%
+  );
   border-radius: 20px;
   border: none;
 `;
