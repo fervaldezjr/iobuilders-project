@@ -59,7 +59,7 @@ export const emailAlreadyUsedAlert = () => {
 export const badYouAlert = () => {
   Swal.fire({
     icon: "info",
-    title: "You can't transfer yourself...",
+    title: "You can't transfer yourself..",
     text: "You are trying to transfer yourself, try making a Deposit.",
   });
 };
