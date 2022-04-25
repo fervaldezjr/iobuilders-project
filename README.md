@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# Usuarios de prueba: 
+## User A
+### email: a-user@mail.com
+### password: 1234
+
+## User B
+### email: b-user@mail.com
+### password: 1234
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

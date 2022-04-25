@@ -30,7 +30,7 @@ const Transactions = () => {
               <>
                 <HistoryContent>
                   <HistoryInfo>
-                    <HistoryUserTitle>Seended: </HistoryUserTitle>
+                    <HistoryUserTitle>Sent to: </HistoryUserTitle>
                     <HistoryUser>{item.receiver}</HistoryUser>
                   </HistoryInfo>
                   <HistoryInfo>

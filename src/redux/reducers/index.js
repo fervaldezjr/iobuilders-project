@@ -1,22 +1,22 @@
 const initialState = {
   logged: {},
   user: [
-    // {
-    //   id: 1,
-    //   firstName: "Fernando",
-    //   lastName: "Valdez",
-    //   email: "fernando@gmail.com",
-    //   password: "123456",
-    //   wallet: 2000,
-    // },
-    // {
-    //   id: 2,
-    //   firstName: "David",
-    //   lastName: "Moll",
-    //   email: "david@gmail.com",
-    //   password: "123456",
-    //   wallet: 1000,
-    // },
+    {
+      id: 1,
+      firstName: "User",
+      lastName: "A",
+      email: "a-user@mail.com",
+      password: "1234",
+      wallet: 0,
+    },
+    {
+      id: 2,
+      firstName: "User",
+      lastName: "B",
+      email: "b-user@mail.com",
+      password: "1234",
+      wallet: 0,
+    },
   ],
   transactions: [
     // {
@@ -57,7 +57,7 @@ const walletReducer = (state = initialState, action) => {
         ...state,
         user: state.user.map((user) =>
           user.email === state.logged.email // si esta logueado
-            ? { ...user, wallet: user.wallet - action.payload.amount } // entro a su wallet y descuento el importe ingresado(payload)
+            ? { ...user, wallet: user.wallet - action.payload.amount } // entro a su wallet y descuento el importe ingresado
             : user.email === action.payload.receiver
             ? { ...user, wallet: user.wallet + action.payload.amount }
             : user

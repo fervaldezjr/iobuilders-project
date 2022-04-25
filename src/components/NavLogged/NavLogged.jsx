@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { setLogin } from "../../redux/actions"
 import { Logout, MenuHamburguesa, NavItem, NavLoggedContainer } from "../Navbar/Navbar.styles"
