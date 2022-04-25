@@ -34,8 +34,6 @@ const Login = () => {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(JSON.stringify(values, null, 2));
-
           const { email, password } = values;
 
           //validar si existe el usuario

@@ -14,17 +14,6 @@ const Deposit = () => {
   return (
     <Formik
       initialValues={{ amount: '' }}
-      // validate={values => {
-      //   const errors = {};
-      //   if (!values.amount) {
-      //     errors.amount = 'Required';
-      //   } else if (
-      //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.amount)
-      //   ) {
-      //     errors.amount = 'Invalid email address';
-      //   }
-      //   return errors;
-      // }}
       onSubmit={(values, { setSubmitting }) => {
           const {amount} = values;
           // Si el monto a depositar es mayor a 0. Deposito Ok.

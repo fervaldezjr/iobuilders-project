@@ -12,8 +12,6 @@ const Navbar = () => {
 
     const handleToggle = () => {
       setIsOpen(!isOpen);
-      console.log('estoy abriendo el menu');
-      console.log(isOpen);
     };
     
 

@@ -34,7 +34,6 @@ const Signup = () => {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-          console.log(JSON.stringify(values, null, 2));
           const { firstName, lastName, email, password } = values;
           // 
           user.find((user) => user.email === email.toLowerCase())
