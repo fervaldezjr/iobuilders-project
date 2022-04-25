@@ -31,7 +31,7 @@ const Transactions = () => {
                 <HistoryContent>
                   <HistoryInfo>
                     <HistoryUserTitle>Seended: </HistoryUserTitle>
-                    <HistoryUser>{item.author}</HistoryUser>
+                    <HistoryUser>{item.receiver}</HistoryUser>
                   </HistoryInfo>
                   <HistoryInfo>
                     <HistoryUserTitle>Date: </HistoryUserTitle>
